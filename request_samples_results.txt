@@ -1,0 +1,188 @@
+===================================================
+http://0.0.0.0:8000/cities
+[
+    {
+        "id": 1,
+        "name": "Kyiv"
+    },
+    {
+        "id": 2,
+        "name": "Uzhhorod"
+    },
+    {
+        "id": 3,
+        "name": "Kharkiv"
+    },
+    {
+        "id": 4,
+        "name": "Odesa"
+    },
+    {
+        "id": 5,
+        "name": "Chernihiv"
+    }
+]
+===================================================
+http://0.0.0.0:8000/mean?value_type=clouds
+{
+    "Mean of clouds for Kyiv": 96.625
+}
+===================================================
+http://0.0.0.0:8000/mean?value_type=temp
+{
+    "Mean of temp for Uzhhorod": 1.4000000000000001
+}
+===================================================
+http://0.0.0.0:8000/records?city=Kharkiv
+[
+    {
+        "id": 18,
+        "name": "Kharkiv",
+        "date": "2021-12-15",
+        "temp": 1.69,
+        "pcp": null,
+        "clouds": 100,
+        "pressure": 1023,
+        "humidity": 80,
+        "wind_speed": 2.93
+    },
+    {
+        "id": 19,
+        "name": "Kharkiv",
+        "date": "2021-12-16",
+        "temp": 2.34,
+        "pcp": null,
+        "clouds": 19,
+        "pressure": 1024,
+        "humidity": 67,
+        "wind_speed": 2.92
+    },
+    {
+        "id": 20,
+        "name": "Kharkiv",
+        "date": "2021-12-17",
+        "temp": 1.46,
+        "pcp": null,
+        "clouds": 100,
+        "pressure": 1009,
+        "humidity": 99,
+        "wind_speed": 3.88
+    }
+]
+===================================================
+http://0.0.0.0:8000/records?city=Kharkiv
+[
+    {
+        "id": 17,
+        "name": "Kharkiv",
+        "date": "2021-12-14",
+        "temp": 1.5,
+        "pcp": null,
+        "clouds": 72,
+        "pressure": 1023,
+        "humidity": 76,
+        "wind_speed": 3.01
+    },
+    {
+        "id": 18,
+        "name": "Kharkiv",
+        "date": "2021-12-15",
+        "temp": 1.69,
+        "pcp": null,
+        "clouds": 100,
+        "pressure": 1023,
+        "humidity": 80,
+        "wind_speed": 2.93
+    },
+    {
+        "id": 19,
+        "name": "Kharkiv",
+        "date": "2021-12-16",
+        "temp": 2.34,
+        "pcp": null,
+        "clouds": 19,
+        "pressure": 1024,
+        "humidity": 67,
+        "wind_speed": 2.92
+    },
+    {
+        "id": 20,
+        "name": "Kharkiv",
+        "date": "2021-12-17",
+        "temp": 1.46,
+        "pcp": null,
+        "clouds": 100,
+        "pressure": 1009,
+        "humidity": 99,
+        "wind_speed": 3.88
+    },
+    {
+        "id": 21,
+        "name": "Kharkiv",
+        "date": "2021-12-18",
+        "temp": 0.56,
+        "pcp": null,
+        "clouds": 99,
+        "pressure": 1014,
+        "humidity": 71,
+        "wind_speed": 3.43
+    },
+    {
+        "id": 22,
+        "name": "Kharkiv",
+        "date": "2021-12-19",
+        "temp": -0.18,
+        "pcp": null,
+        "clouds": 31,
+        "pressure": 1019,
+        "humidity": 73,
+        "wind_speed": 3.96
+    },
+    {
+        "id": 23,
+        "name": "Kharkiv",
+        "date": "2021-12-20",
+        "temp": -1.36,
+        "pcp": null,
+        "clouds": 46,
+        "pressure": 1010,
+        "humidity": 69,
+        "wind_speed": 5.02
+    },
+    {
+        "id": 24,
+        "name": "Kharkiv",
+        "date": "2021-12-21",
+        "temp": -2.46,
+        "pcp": null,
+        "clouds": 94,
+        "pressure": 1011,
+        "humidity": 73,
+        "wind_speed": 4.15
+    }
+]
+===================================================
+http://0.0.0.0:8000/moving_mean?city=Odesa
+{
+    "Moving average of clouds for Odesa": [
+        100.0,
+        95.66666666666667,
+        95.66666666666667,
+        82.33333333333333,
+        56.666666666666664,
+        44.0
+    ]
+}
+===================================================
+http://0.0.0.0:8000/moving_mean?city=Chernihiv
+{
+    "Moving average of wind_speed for Chernihiv": [
+        3.0300000000000002,
+        4.65,
+        6.235,
+        6.235,
+        5.875,
+        5.5649999999999995,
+        5.26
+    ]
+}

@@ -40,5 +40,5 @@ Latitude and longitude coordinates are: 49.988358, 36.232845.
 Odesa, Ukraine
 Latitude and longitude coordinates are: 46.482952, 30.712481.
 
-Chernihiv, Ukraine 
-Latitude and longitude coordinates are: 51.50551, 31.28487
+Decimal latitude and longitude coordinates for Chernihiv (Ukraine):
+51.50551, 31.28487

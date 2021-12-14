@@ -26,10 +26,11 @@ class CitiesView(Resource):
 class Mean(Resource):
     """
     :return: середнє значення вибраного параметру для вибраного міста в форматі json
-    
+
     :param city: назва міста
     :param value_type: одне з [temp, pcp, clouds, pressure, humidity, wind_speed]
     """
+
     def get(self):
         args = request.args
         city = args.get("city")
@@ -48,11 +49,15 @@ class Records(Resource):
     :param start_dt: початкова дата
     :param end_dt: кінцева дата
     """
+
     def get(self):
         args = request.args
         city = args.get("city")
         start_dt = args.get("start_dt", CitiesSevenDays.query.first().date)
-        end_dt = args.get("end_dt", CitiesSevenDays.query.order_by(CitiesSevenDays.id.desc()).first().date)
+        end_dt = args.get(
+            "end_dt",
+            CitiesSevenDays.query.order_by(CitiesSevenDays.id.desc()).first().date,
+        )
         datas = CitiesSevenDays.query.filter(
             CitiesSevenDays.name == city,
             CitiesSevenDays.date >= start_dt,
@@ -70,11 +75,12 @@ class MovingMean(Resource):
     :param city: назва міста
     :param value_type: одне з [temp, pcp, clouds, pressure, humidity, wind_speed]
     """
+
     def get(self):
         args = request.args
         city = args.get("city")
         value_type = args.get("value_type")
-        wsize = int(args.get('wsize', 3))
+        wsize = int(args.get("wsize", 3))
         datas = CitiesSevenDays.query.filter(CitiesSevenDays.name == city).all()
         serialize = [CitiesSevenDays.serialize(data) for data in datas]
 
@@ -84,15 +90,15 @@ class MovingMean(Resource):
         windows = numbers_series.rolling(window_size)
         moving_averages = windows.mean()
         moving_averages_list = moving_averages.tolist()
-        without_nans = moving_averages_list[window_size - 1:]
+        without_nans = moving_averages_list[window_size - 1 :]
 
         return {f"Moving average of {value_type} for {city}": without_nans}
 
 
-api.add_resource(CitiesView, '/cities')
-api.add_resource(Mean, '/mean')
-api.add_resource(Records, '/records')
-api.add_resource(MovingMean, '/moving_mean')
+api.add_resource(CitiesView, "/cities")
+api.add_resource(Mean, "/mean")
+api.add_resource(Records, "/records")
+api.add_resource(MovingMean, "/moving_mean")
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000, debug=True)

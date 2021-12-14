@@ -10,19 +10,19 @@ class Cities(Base):
 
     def serialize(self):
         return {
-            'id': self.id,
-            'name': self.name,
+            "id": self.id,
+            "name": self.name,
         }
 
 
 class CitiesSevenDays(Base):
-    __tablename__ = 'data_for_7_days'
+    __tablename__ = "data_for_7_days"
 
     id = Column(Integer, primary_key=True)
-    name = Column(String(25), ForeignKey('cities.name'), nullable=False)
+    name = Column(String(25), ForeignKey("cities.name"), nullable=False)
     date = Column(Date())
     temp = Column(Float)
-    pcp = Column(Float, default='NaN')
+    pcp = Column(Float, default="NaN")
     clouds = Column(Integer)
     pressure = Column(Integer)
     humidity = Column(Integer)
@@ -30,13 +30,13 @@ class CitiesSevenDays(Base):
 
     def serialize(self):
         return {
-            'id': self.id,
-            'name': self.name,
-            'date': str(self.date),
-            'temp': self.temp,
-            'pcp': self.pcp,
-            'clouds': self.clouds,
-            'pressure': self.pressure,
-            'humidity': self.humidity,
-            'wind_speed': self.wind_speed,
+            "id": self.id,
+            "name": self.name,
+            "date": str(self.date),
+            "temp": self.temp,
+            "pcp": self.pcp,
+            "clouds": self.clouds,
+            "pressure": self.pressure,
+            "humidity": self.humidity,
+            "wind_speed": self.wind_speed,
         }
